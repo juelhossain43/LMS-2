@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LeadController extends Controller
 {
@@ -13,6 +14,15 @@ class LeadController extends Controller
      */
     public function index()
     {
+        $user= Auth::user();
+        $check=$user->hasPermissionTo('lead-management');
+
+       if(!$check){
+        flash()->addwarning('You are not Authorized to access this Page');
+        return redirect()->route('dashboard');
+       }
+
+
         return view('lead.index');
     }
 
