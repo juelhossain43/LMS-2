@@ -24,12 +24,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
        
-     
+     $defaulPermissions = ['lead-management', 'create-admin'];
+     foreach($defaulPermissions as $permission){
+      Permission::create(['name'=>$permission]);
+     }
   
 
      $this->create_user_with_role('Super Admin', 'Super Admin', 'superadmin@lms.com' );
-     $this->create_user_with_role('communication', 'Communication Team', 'communication@lms.com' );
+     $this->create_user_with_role('Communication', 'Communication Team', 'communication@lms.com' );
      $teacher=$this->create_user_with_role('Teacher', 'Teacher', 'teacher@lms.com' );
+     $this->create_user_with_role('Leads', 'Leads', 'leads@lms.com' );
+     
 
     //lead create
     Lead::factory()->count(100)->create();
@@ -57,10 +62,8 @@ class DatabaseSeeder extends Seeder
       ]);
 
       if($type=='Super Admin'){
-          $permission=Permission::create([
-                 'name' => 'create-admin'
-          ]);
-          $role->givePermissionTo($permission);
+         
+          $role->givePermissionTo(Permission::all());
 
         }
         
