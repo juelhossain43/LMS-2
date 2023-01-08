@@ -16,8 +16,10 @@ class LeadIndex extends Component
         ]);
     }
     public function leadDelete($id){
+        //permisson_check('lead-management');
         $lead=lead::findOrFail($id);
         $lead->delete();
        flash()->addSuccess('Lead Delete successfully');
     }
+ 
 }
