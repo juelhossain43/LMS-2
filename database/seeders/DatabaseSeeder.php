@@ -44,6 +44,7 @@ class DatabaseSeeder extends Seeder
       'description'=>'laravel is a web application framework with expressive, elegant syntax',
       'image'=>'https://laravel-courses.com/storage/series/54e8baab-727e-4593-a78a-e0c22c569b61.png',
       'user_id'=>$teacher->id,
+      'price'=>500,
     ]);
 
     Clause::factory(10)->create();
