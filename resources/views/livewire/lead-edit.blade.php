@@ -3,7 +3,7 @@
       <div class="flex -mx-4 mb-4">
          <div class="flex-1 px-4">
             <label for="" class="lms-label">Name</label>
-               <input wire:model="name" type="text" class="lms-input"  >
+               <input wire:model.lazy="name" type="text" class="lms-input"  >
                @error('name')
                   <div class="text-red-500 text-sm mt-2">{{ $messgae }}</div>
                @enderror
@@ -17,7 +17,7 @@
          </div>
          <div class="flex-1 px-4">
                <label for="" class="lms-label">Phone</label>
-               <input wire:model="phone" type="tel" class="lms-input"  >
+               <input wire:model.lazy="phone" type="tel" class="lms-input"  >
                @error('phone')
                <div class="text-red-500 text-sm mt-2">{{ $message }}</div>
             @enderror
@@ -26,7 +26,7 @@
 
       
       @include('components.wire-loading-btn')
-      <button wire:loading.remove class="lms-btn" type="submit">Update</button>
+    
    </form>
 
    <h3 class="font-bold text-lg py-4 mb-4">Notes</h3>

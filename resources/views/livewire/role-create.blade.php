@@ -24,5 +24,5 @@
                 @enderror
             </div>
             @include('components.wire-loading-btn')
-            <button wire:loading.remove class="lms-btn" type="submit">Submit</button>
+           
 </form>

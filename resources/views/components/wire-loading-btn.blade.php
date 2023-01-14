@@ -4,4 +4,6 @@
       </svg>
 <span class="pl-2">Loading..</span>      
 
+
 </div>
+<button loading.delay.long.remove class="lms-btn" type="submit">Submit</button>
